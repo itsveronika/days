@@ -13,10 +13,11 @@ SELECT object_name FROM (
 	SELECT pizza_name AS object_name, 'pizza' AS type FROM menu
 	UNION ALL
 	SELECT name, 'name' FROM person
-	ORDER BY TYPE DESC
+	ORDER BY TYPE ASC
 ) AS tablee;
 ```
-![image](https://github.com/ngllsq/sql_projects/assets/114596475/d83b8197-3321-4e88-94ae-f5d0328e532d)
+![image](https://github.com/itsveronika/days/assets/113369081/2e5889d7-fe31-4530-a46d-994713b6ae6c)
+
 
 ## Task - 3
 ```sql
