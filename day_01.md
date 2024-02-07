@@ -73,17 +73,21 @@ SELECT
 	po.order_date,
 	p.name || '(age: ' || p.age ||')' AS person_information
 FROM person_order po
-JOIN person p ON po.person_id = p.id;
+JOIN person p ON po.person_id = p.id
+ORDER BY 1,2;
 ```
-![image](https://github.com/ngllsq/sql_projects/assets/114596475/b1c5fed7-5e5b-4d55-9770-c4b07b4ab3f5)
+![image](https://github.com/itsveronika/days/assets/113369081/a5e4a070-b62d-443d-b561-067ce5e395ee)
+
 
 ## Task - 8
 ```sql
 SELECT order_date, name || '(age: ' || age || ')'   AS person_information
 FROM (SELECT order_date, person_id AS id FROM person_order) as tab
 NATURAL JOIN  person;
+ORDER BY 1,2;
 ```
-![image](https://github.com/ngllsq/sql_projects/assets/114596475/c4821eab-2920-4488-8cc5-b83ee369acca)
+![image](https://github.com/itsveronika/days/assets/113369081/e1df0243-31d5-4534-acf4-78f1ed25d0ff)
+
 
 ## Task - 9
 ```sql
