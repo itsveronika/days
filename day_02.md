@@ -11,8 +11,31 @@ WHERE pv.id IS NULL
 
 ## Task - 01
 ```sql
+WITH all_days AS (
+  SELECT days::date 
+  FROM generate_series('2022-01-01', '2022-01-10', interval '1 day') AS days
+)
+SELECT all_days.days 
+FROM all_days
+LEFT JOIN person_visits pv ON all_days.days = pv.visit_date AND (pv.person_id = 1 OR pv.person_id = 2)
+WHERE pv.visit_date IS NULL
+ORDER BY 1 ASC;
 ```
+![image](https://github.com/itsveronika/days/assets/113369081/181c8013-fc61-43af-8682-d5417f013055)
 
+## Task - 06 
+```sql
+SELECT 
+	m.pizza_name,
+	pi.name AS pizzeria_name
+FROM menu m
+JOIN pizzeria pi ON m.pizzeria_id = pi.id
+JOIN person_order po ON m.id = po.menu_id 
+JOIN person p ON po.person_id = p.id
+WHERE p.name = 'Denis' OR p.name = 'Anna'
+ORDER BY 1, 2;
+```
+![image](https://github.com/itsveronika/days/assets/113369081/ceacb378-e4ae-40b9-9b15-d1a382f39433)
 
 ## Task - 09
 ```sql
