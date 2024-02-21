@@ -21,7 +21,20 @@ ORDER BY 1 ASC;
 
 ## Task 02
 ```sql
+SELECT
+ COALESCE(p.name, '-') AS person_name,
+ tab.visit_date,
+ COALESCE(pi.name, '-') AS pizzeria_name
+ FROM person p
+ FULL JOIN (
+ SELECT pizzeria_id, person_id, visit_date FROM person_visits
+ WHERE visit_date BETWEEN '2022-01-01' AND '2022-01-03'
+) tab ON tab.person_id = p.id
+FULL JOIN pizzeria pi ON pi.id = tab.pizzeria_id
+ORDER BY 1, 2, 3
 ```
+![image](https://github.com/itsveronika/days/assets/113369081/4848a25c-3f13-4d80-90b0-1dcce495f19e)
+
 
 ## Task 03
 ```sql
